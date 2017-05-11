@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <titl>test tutorial</titl>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <script type="text/javascript" src="libs/angular/angular.min.js"></script>
+        <!--<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_environment.htm-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_mvc_architecture.htm-->
+   </head>
+    </head>
+    <body ng-app="myapp">
+        <div ng-controller="HelloController">
+            <h2>Welcome {{helloTo.title}} to the worl of tutorialpoint !</h2>            
+        </div>
+        <script>
+            angular.module("myapp",[])
+            .controller("HelloController", function($scope)
+            {
+                $scope.helloTo = {};
+                $scope.helloTo.title = "Angular JS";
+            });                
+        </script>
+    </body>
+</html>
