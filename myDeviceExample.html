@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <titl>AngularDevice</titl>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        
+        <!--<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_environment.htm-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_directives.htm-->
+   </head>
+    </head>
+    <body >
+        <h1>Test Devices</h1>
+        <div ng-app="" ng-init="countries = [{locale:'en-US',name:'United States'}, {locale:'en-GB',name:'United Kingdom'}, {locale:'en-FR',name:'France'}]">
+           <p>Enteryour Name: <input type ="text" ng-model = "name"></p> 
+            <p>Hello <span ng-bind ="name"></span>!</p>
+            <p>List Countries with locale:</p>
+            <ol>
+                <li ng-repeat = "country in countries">
+                    {{'Country:' + country.name + ' , Locale: '+ country.locale}}
+                </li>
+            </ol>
+        </div>
+        <script type="text/javascript" src="libs/angular/angular.min.js"></script>
+        <script>
+              
+        </script>
+    </body>
+</html>
