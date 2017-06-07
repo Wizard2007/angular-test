@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <titl>Angular HTML DOM</titl>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>              
+        <!--<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_environment.htm-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_html_dom.htm-->
+   </head>
+      <body >
+        <h1>Test HTML DOM</h1>
+        <div ng-app="">
+          <table border="0">
+            <tr>
+              <td><input type = "checkbox" ng-model = "enableDisableButton">Disable Button</td>
+              <td><button ng-disabled = "enableDisableButton">Click Me!</button></td>
+            </tr>
+            <tr>
+              <td><input type = "checkbox" ng-model = "showHide1">Show Button</td>
+              <td><button ng-show = "showHide1">Click Me!</button></td>
+            </tr>
+            <tr>
+              <td><input type = "checkbox" ng-model = "showHide2">Hide Button</td>
+              <td><button ng-hide = "showHide2">Click Me!</button></td>
+            </tr>
+            <tr>
+              <td><p>Total click: {{clickCounter}}</p></td>
+              <td><button ng-click="clickCounter = clickCounter + 1">Click Me!</button></td>
+            </tr>            
+          </table>
+        </div>              
+        <script type="text/javascript" src="libs/angular/angular.min.js"></script>
+        <script>
+        </script>
+    </body>
+</html>
