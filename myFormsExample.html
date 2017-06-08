@@ -18,6 +18,7 @@
              table tr:nth-child(even) {
                 background-color: #ffffff;
              }
+            .dandeous-span{color: red}
         </style>        
         <!--<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>-->
         <!--https://www.tutorialspoint.com/angularjs/angularjs_environment.htm-->
@@ -25,5 +26,43 @@
    </head>
    <body >
      <h1>Test Forms</h1>
+        <div ng-app="myApp" ng-controller = "studentController">
+            <form name = "studentForm" novalidate>
+                <table border ="0">
+                    <tr>
+                        <td>Enter firstname:</td>
+                        <td><input name ="firstname" type = "text" ng-model = "firstName" required><span class="dandeous-span" ng-show="studentForm.firstname.$dirty && studentForm.firstname.$invalid"><span class="dandeous-span"  ng-show="studentForm.firstname.$error.required">First Name is required</span></span></td>
+                    </tr>
+                    <tr>
+                        <td>Enter last name:</td>
+                        <td><input name="lastname" type ="text" ng-model= "lastName" required><span class="dandeous-span" ng-show="studentForm.lastname.$dirty && studentForm.lastname.$invalid">
+                        <span ng-show = "studentForm.lastname.$error.required">Last Name is required.</span></span></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input name = "email" type="email" ng-model="email" length="100" required><span class="dandeous-span" ng-show="studentForm.email.$dirty && studentForm.$invalid"><span ng-show="studentForm.email.$error.required">Email is required</span><span ng-show="studentForm.email.$error.email">Invalid email!</span></span></td>
+                    </tr> 
+                    <tr>
+                        <td><button ng-click="reset()">Reset</button></td>
+                        <td><button ng-disabled = "studentForm.firstname.$dirty &&
+                        studentForm.firstname.$invalid || studentForm.lastname.$dirty &&
+                        studentForm.lastname.$invalid || studentForm.email.$dirty &&
+                        studentForm.email.$invalid" ng-click="submit()">Submit</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <script type="text/javascript" src="libs/angular/angular.min.js"></script>
+        <script>
+           var myApp = angular.module('myApp', []);
+           myApp.controller('studentController', function($scope){
+                $scope.reset = function (){
+                    $scope.firstName = "Mahesh";
+                    $scope.lastName = "Parashar";
+                    $scope.email = "MaheshParashar@tutorialspoint.com"; 
+                }
+                $scope.reset();
+           });
+        </script>       
    </body>
 </html>
