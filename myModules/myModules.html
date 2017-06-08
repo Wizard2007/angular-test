@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <titl>Angular Controllers</titl>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+          <style>
+             table, th , td {
+                border: 1px solid grey;
+                border-collapse: collapse;
+                padding: 5px;
+             }
+
+             table tr:nth-child(odd) {
+                background-color: #f2f2f2;
+             }
+
+             table tr:nth-child(even) {
+                background-color: #ffffff;
+             }
+          </style>              
+        <!--<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_environment.htm-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_modules.htm-->
+   </head>
+    </head>
+    <body >
+        <h1>Test Table</h1>
+        <div ng-app = "myApp" ng-controller = "studentController">
+         
+         <table border = "0">
+            <tr>
+               <td>Enter first name:</td>
+               <td><input type = "text" ng-model = "student.firstName"></td>
+            </tr>            
+            <tr>
+               <td>Enter last name: </td>
+               <td>
+                  <input type = "text" ng-model = "student.lastName">
+               </td>
+            </tr>            
+            <tr>
+               <td>Name: </td>
+               <td>{{student.fullName()}}</td>
+            </tr>            
+            <tr>
+               <td>Subject:</td>
+					
+               <td>
+                  <table>
+                     <tr>
+                        <th>Name</th>.
+                        <th>Marks</th>
+                     </tr>                     
+                     <tr ng-repeat = "subject in student.subjects">
+                        <td>{{ subject.name }}</td>
+                        <td>{{ subject.marks }}</td>
+                     </tr>							
+                  </table>
+               </td>					
+            </tr>
+         </table>         
+      </div>
+      <script type="text/javascript" src="../libs/angular/angular.min.js"></script>
+      <script type="text/javascript" src="js/myApp.js"></script>
+      <script type="text/javascript" src="js/studentController.js"></script>
+    </body>
+</html>
