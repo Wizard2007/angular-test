@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <titl>Angular Includes</titl>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+          <style>
+             table, th , td {
+                border: 1px solid grey;
+                border-collapse: collapse;
+                padding: 5px;
+             }
+
+             table tr:nth-child(odd) {
+                background-color: #f2f2f2;
+             }
+
+             table tr:nth-child(even) {
+                background-color: #ffffff;
+             }
+          </style>              
+        <!--<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_environment.htm-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_includes.htm-->
+    </head>    
+    <body >
+      <h1>Test Includes</h1>
+      <div ng-app = "myApp" ng-controller = "studentController">                 <div ng-include = "'src/main.htm'"></div>
+          <div ng-include = "'src/subjects.htm'"></div>
+       </div>
+        <script type="text/javascript" src="../libs/angular/angular.min.js"></script>
+        <script>
+            var myApp = angular.module('myApp', []);
+            myApp.controller('studentController', function($scope){
+                $scope.student = {
+                  firstName: "Mahesh",
+                  lastName: "Parashar",
+                  fees:500,
+                  subjects:[
+                      {name:'Physics',marks:70},
+                      {name:'Chemistry',marks:80},
+                      {name:'Math',marks:65},
+                      {name:'English',marks:75},
+                      {name:'Hindi',marks:67}],
+                  fullName: function(){
+                      var studentObject;
+                      studentObject = $scope.student;
+                      return studentObject.firstName + " " + studentObject.lastName;}
+                }
+            });
+        </script>          
+    </body>
+</html>
