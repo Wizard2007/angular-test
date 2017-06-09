@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <titl>Angular Controllers</titl>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+          <style>
+             table, th , td {
+                border: 1px solid grey;
+                border-collapse: collapse;
+                padding: 5px;
+             }
+
+             table tr:nth-child(odd) {
+                background-color: #f2f2f2;
+             }
+
+             table tr:nth-child(even) {
+                background-color: #ffffff;
+             }
+          </style>
+              
+        <!--<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_environment.htm-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_ajax.htm-->
+    </head>
+    <body>
+        <h2>AngukarJS Ajax Sample</h2>
+        <div ng-app="myApp" ng-controller="studentController">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td>Roll No:</td>
+                    <td>Percentage:</td>
+                </tr>
+                <tr ng-repeat="student in students">
+                    <td>{{student.Name}}</td>
+                    <td>{{student.RollNo}}</td>
+                    <td>{{student.Percentage}}</td>                    
+                </tr>
+            </table>  
+        </div>
+        <script type="text/javascript" src="../libs/angular/angular.min.js"></script>
+        <script type="text/javascript">
+            var myApp = angular.module('myApp',[])
+            myApp.controller('studentController',
+                function ($scope,$http){
+                    var url = "data.json";
+                    console.log(url)
+                    $http.get(url).then(function (response){
+                        $scope.students = response.data;
+                    });
+                }
+            );
+                
+        </script>
+    </body>
+</html>    
+   
