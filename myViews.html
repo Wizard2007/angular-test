@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <titl>Angular Views</titl>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <!--<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_environment.htm-->
+        <!--https://www.tutorialspoint.com/angularjs/angularjs_views.htm-->
+    </head>
+    <body>
+        <script type="text/javascript" src="libs/angular/angular.min.js"></script>
+        <script type="text/javascript" src="libs/angular/angular-route.js"></script>        
+        <h1>Angular Views</h1>
+        <div ng-app="myApp">
+            <p><a href = "#addStudent">Add Student</a></p>
+            <p><a href = "#viewStudents">View Students</a></p>       
+            <div ng-view>
+                <script type = "text/ng-template" id = "addStudent.htm">
+                    <h2>Add Student</h2>
+                    {{message}}
+                </script>
+                <script type = "text/ng-template" id = "viewStudents.htm">
+                    <h2>View student</h2>
+                    {{message}}
+                </script>
+            </div>
+        </div>
+
+        <script>
+            var myApp = angular.module("myApp", ['ngRoute']);
+            myApp.config(['$routeProvider'], function($routeProvider){
+                $routeProvider.
+                when('/addStudent', {templateUrl: 'addStudent.htm', controller: 'AddStudentController'}
+                ).
+                where('viewStudents', {templateUrl: "viewStudents.htm", controller: 'ViewStudentsController'}).
+                otherwise({redirecTo: '/addStudent'});
+            }
+            );
+            myApp.controller('AddStudentController', function($scope){
+               $scope.message = "This page will be used to display add student form";
+            });
+            myApp.controller('ViewStudentsController', function($scope){
+               $scope.message = "This page will be used to display all the students";
+            });            
+        </script>
+    </body>
+</html>
+    
